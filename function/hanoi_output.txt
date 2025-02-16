@@ -1,0 +1,15 @@
+Di chuyển đĩa 1 từ A đến B
+Di chuyển đĩa 2 từ A đến C
+Di chuyển đĩa 1 từ B đến C
+Di chuyển đĩa 3 từ A đến B
+Di chuyển đĩa 1 từ C đến A
+Di chuyển đĩa 2 từ C đến B
+Di chuyển đĩa 1 từ A đến B
+Di chuyển đĩa 4 từ A đến C
+Di chuyển đĩa 1 từ B đến C
+Di chuyển đĩa 2 từ B đến A
+Di chuyển đĩa 1 từ C đến A
+Di chuyển đĩa 3 từ B đến C
+Di chuyển đĩa 1 từ A đến B
+Di chuyển đĩa 2 từ A đến C
+Di chuyển đĩa 1 từ B đến C

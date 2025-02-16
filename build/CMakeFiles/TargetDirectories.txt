@@ -1,0 +1,4 @@
+C:/Users/heozu/Desktop/Fsoft/FPTProjects/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/heozu/Desktop/Fsoft/FPTProjects/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/heozu/Desktop/Fsoft/FPTProjects/build/exam/CMakeFiles/exam.dir
+C:/Users/heozu/Desktop/Fsoft/FPTProjects/build/linker/CMakeFiles/linker.dir

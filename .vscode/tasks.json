@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Linker",
+            "type": "shell",
+            "command": "make buildcpp",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/linker"
+            }
+        }   ,
+        {
+            "label": "Build pract",
+            "type": "shell",
+            "command": "make builddebug",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/function/pract"
+            }
+        } ,
+        {
+            "label": "Build bai1",
+            "type": "shell",
+            "command": "make build",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/oop/bai1"
+            }
+        } 
+
+    ]
+}

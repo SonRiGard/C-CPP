@@ -1,0 +1,88 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Linker",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/linker/main.exe",
+            "cwd": "${workspaceFolder}/linker",
+            "preLaunchTask": "Build Linker",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug apaque",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/function/pract/main.exe",
+            "cwd": "${workspaceFolder}/function",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug pract",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/function/pract/main.exe",
+            "cwd": "${workspaceFolder}/function/pract",
+            "MIMode": "gdb",
+            "preLaunchTask": "Build pract",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug bai1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/oop/bai1/main.exe",
+            "cwd": "${workspaceFolder}/oop/bai1",
+            "MIMode": "gdb",
+            "preLaunchTask": "Build bai1",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/oop/test.exe",
+            "cwd": "${workspaceFolder}/oop",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+    ]
+}

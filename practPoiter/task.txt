@@ -1,0 +1,41 @@
+Đề bài: Quản lý danh sách các phép toán số học
+Bạn cần xây dựng một chương trình để quản lý một danh sách các phép toán số học. Cụ thể, bạn cần thực hiện các phép toán cộng, trừ, nhân, chia trên hai số và lưu trữ các hàm thực hiện các phép toán này trong một mảng các function pointer.
+
+Yêu cầu:
+
+- Khởi tạo mảng function pointer:
+- Sử dụng một mảng các function pointer để lưu trữ các phép toán cộng, trừ, nhân và chia.
+- Dùng function pointer để thực hiện phép toán:
+Sử dụng mảng các function pointer để chọn phép toán dựa trên chỉ số (index) trong mảng.
+- Kiểm tra lỗi chia cho 0:
+Trong phép toán chia, kiểm tra nếu mẫu số bằng 0 và báo lỗi nếu có.
+
+---------------------------------------------------------------------------------------------
+Bai 2
+Bạn cần xây dựng một chương trình quản lý thông tin sinh viên, trong đó mỗi sinh viên 
+có các thông tin như họ tên, tuổi và điểm trung bình. Bạn sẽ sử dụng con trỏ để quản 
+lý các sinh viên và các phép toán trên thông tin này.
+
+Yêu cầu:
+- Khai báo một struct SinhVien:
+- Struct sẽ chứa các trường: name (chuỗi ký tự), age (số nguyên), và gpa (điểm trung bình, kiểu float).
+Sử dụng con trỏ đơn:
+- Khai báo và sử dụng con trỏ để trỏ đến một biến SinhVien. 
+Sử dụng con trỏ để thay đổi giá trị của các trường trong struct.
+
+Sử dụng con trỏ mảng:
+- Khai báo một mảng con trỏ để quản lý danh sách sinh viên.
+Cho phép thêm mới sinh viên vào mảng và truy xuất thông tin 
+của sinh viên thông qua con trỏ mảng.
+
+Sử dụng con trỏ hàm (function pointer):
+- Khai báo một con trỏ hàm để thay đổi cách tính điểm trung bình của sinh viên.
+Có ít nhất 2 hàm tính điểm trung bình theo cách khác nhau (ví dụ: tính trung bình cộng và tính trung bình theo tỷ lệ môn).
+
+Sử dụng con trỏ bậc 2 (pointer to pointer):
+- Khai báo một con trỏ bậc 2 trỏ đến mảng con trỏ. Sử dụng con trỏ bậc 2 để truy cập và thao tác với danh sách sinh viên.
+-Sử dụng typedef:
+Định nghĩa typedef cho kiểu con trỏ trỏ đến một struct SinhVien để tiện sử dụng trong các phần sau của chương trình.
+
+- Xử lý bộ nhớ động:
+Sử dụng malloc và free để cấp phát và giải phóng bộ nhớ cho các sinh viên, đảm bảo không có rò rỉ bộ nhớ.
