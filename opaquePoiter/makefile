@@ -1,3 +1,4 @@
+make: build run
 build:
 	gcc -c main.c -o main.o
 	gcc -c opaque.c -o opaque.o

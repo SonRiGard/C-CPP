@@ -1,21 +1,29 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Animal {
-public:
-    virtual void  makeSound() {  // Hàm ảo có thân hàm
-        std::cout << "Animal sound!" << std::endl;
-    }
-};
 
-class Dog : public Animal {
+class MoveExample {
 public:
-    void makeSound()  {  // Override lại hàm ảo
-        std::cout << "Woof! Woof!" << std::endl;
+    int* data;
+
+    MoveExample(int val) {
+        data = new int(val);
     }
+
+    // Move Constructor
+    MoveExample(MoveExample&& obj) noexcept {
+        data = obj.data;  // Transfer ownership
+        obj.data = nullptr;  // Prevent dangling pointer
+    }
+
+    void show() { cout << "Value: " << *data << endl; }
+
+    ~MoveExample() { delete data; }
 };
 
 int main() {
-    Animal* a = new Dog();
-    a->makeSound();  // Gọi hàm của lớp Dog nhờ cơ chế đa hình
-    delete a;
+    MoveExample obj1(20);
+    MoveExample obj2 = move(obj1);  // Move Constructor called
+
+    obj2.show();
+    return 0;
 }

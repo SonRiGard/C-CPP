@@ -119,6 +119,7 @@ class vector {
         T* end (){
             return &data[size];
         } 
+
         void shrink_to_fit() {
             if (size < capacity) {
                 T* newData = new T[size];
@@ -130,7 +131,6 @@ class vector {
                 capacity = size;
             }
         }
-
 };
 
 #endif

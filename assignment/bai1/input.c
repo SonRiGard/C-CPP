@@ -10,7 +10,7 @@ void flush_input_buffer() {
 }
 
 // Hàm nhập số nguyên và kiểm tra đầu vào
-int getINT() {
+int getInt() {
     char buff[MAXSIZE];
     int check = 0; // điều kiện thoát chương trình
     int i = 0; // biến count 
@@ -40,6 +40,7 @@ int getINT() {
     return value;
 }
 
+
 char getChar() {
     char input;
     int check = 0;
@@ -66,20 +67,3 @@ char getChar() {
     return input;
 }
 
-
-int main() {
-    // while (1) {
-    //     printf("Enter number: ");
-    //     int result = getINT();
-    //     printf("Number entered: %d\n", result);
-    // }
-    // return 0;
-
-    while (1) {
-        printf("Enter a character from 'a' to 'z': ");
-        char result = getChar();
-        printf("Character entered: '%c'\n", result);
-    }
-    return 0;
-
-}

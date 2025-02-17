@@ -16,8 +16,7 @@ int main(){
         cout << endl;
         }
         while (task < 1 || task > 4) ;
-        
-
+    
         string name;int age;string sex; string address;  int type;
 
             switch (task)

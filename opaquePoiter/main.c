@@ -3,8 +3,9 @@
 
 int main() {
     // MyStruct abj;
-    MyStruct* obj = create_struct(42);
-
+    MyStruct* obj ;
+    obj  = create_struct(42);
+    
     if (obj) {
         printf("Gia tri trong Struct: %d\n", get_value(obj));
         print_size();
@@ -12,5 +13,4 @@ int main() {
         destroy_struct(obj);
     }
     return 0;
-
 }

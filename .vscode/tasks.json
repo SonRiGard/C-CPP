@@ -39,7 +39,20 @@
             "options": {
                 "cwd": "${workspaceFolder}/oop/bai1"
             }
-        } 
+        },
+        {
+            "label": "Build ass1",
+            "type": "shell",
+            "command": "make build",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/assignment/bai1"
+            }
+        } ,
 
     ]
 }

@@ -84,5 +84,23 @@
             ],
             "externalConsole": false
         },
+        {
+            "name": "Debug ass1",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build ass1",
+            "program": "${workspaceFolder}/assignment/bai1/main.exe",
+            "cwd": "${workspaceFolder}/assignment",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+
     ]
 }

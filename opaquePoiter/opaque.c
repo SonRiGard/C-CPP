@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "opaque.h"
+#include <stdlib.h>
 
 int add(int a){
     return a;
