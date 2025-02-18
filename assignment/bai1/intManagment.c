@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "intManagment.h"
+#include "input.h"
 
 struct intManagment{
     int *data;
@@ -9,6 +10,7 @@ struct intManagment{
 
 intManagment* creat_ptr_managment (){
     intManagment* tmpPtr = (intManagment*)malloc(sizeof(intManagment));
+    tmpPtr-> data =NULL;
     tmpPtr-> size =0;
     return tmpPtr;
 }
@@ -26,14 +28,19 @@ void initArr (intManagment* arr, int size){
             return;
         };
         for (int i=0; i<arr->size ; i++){
-            printf("Enter value off array index = [%d] ", i);
-            scanf("%d", ((arr->data)+i));
+            printf("Enter value off array index = [ %d] ", i);
+            arr->data[i] = getInt();
             printf("\n-----------------------------\n");
         }
         return;
     }else{
         arr->size = size;
         arr->data = (int*)realloc(arr->data,arr->size * sizeof(int));
+        for (int i=0; i<arr->size ; i++){
+            printf("Enter value off array index = [ %d] ", i);
+            arr->data[i] = getInt();
+            printf("\n-----------------------------\n");
+        }
     }
 };
 
@@ -46,7 +53,7 @@ void printListArr (intManagment* arr){
     for(int i=0; i<arr->size; i++){
         printf(" [%d]:[%d] ",i,arr->data[i]);
     }
-    printf("\np");
+    printf("\n");
 };
 
 int insertAtIndex (intManagment* arr,int index, int value){
@@ -54,16 +61,24 @@ int insertAtIndex (intManagment* arr,int index, int value){
         printf("ERROR: insert at array null poiter\n");
         return 0;
     } ;
+
     if(index<0 || index > arr->size){
         printf("index not avaiable!\n");
         return 0;
+    };
+
+    arr->size += 1;
+    if (arr->data != NULL){
+        arr->data = (int*)realloc(arr->data,arr->size*sizeof(int));
+        if(arr -> data == NULL){
+            printf("Memory reallocation failed");
+            return 0;
+        }
+    }else if (arr->data == NULL){
+        arr-> data = (int*)malloc(arr->size*sizeof(int));
     }
-    arr->size += 1; 
-    arr->data = (int*)realloc(arr->data,arr->size*sizeof(int));
-    if(arr -> data == NULL){
-        printf("Memory reallocation failed");
-        return 0;
-    }
+
+
     for (int i=arr->size-1;i>index;i--){
         arr->data[i]=arr->data[i-1];
     }
@@ -132,8 +147,8 @@ int partition(int arr[], int low, int high, int ascending) {
     return i + 1;  // Trả về chỉ số của pivot sau khi phân tách
 }
 
-void quickSort(int arr[], int low, int high, int ascending) {
-    if(arr = NULL){
+void quickSort(int* arr, int low, int high, int ascending) {
+    if(arr == NULL){
         printf("ERROR: can't sort null array");
     }
     if (low < high) {

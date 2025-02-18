@@ -1,6 +1,6 @@
 #ifndef INPUT_H_
 #define INPUT_H_
-int isInteger(const char *str);
+void flush_input_buffer();
 int getInt();
 char getChar();
 #endif

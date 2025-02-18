@@ -6,7 +6,8 @@
 // Hàm để xóa tất cả ký tự còn lại trong bộ đệm
 void flush_input_buffer() {
     char ch;
-    while ((ch = getchar()) != '\n' && ch != EOF);  // Đọc và bỏ qua tất cả đến khi gặp '\n' hoặc EOF
+    int count=0;
+    while ((ch = getchar()) != '\n' && ch != EOF );  // Đọc và bỏ qua tất cả đến khi gặp '\n' hoặc EOF
 }
 
 // Hàm nhập số nguyên và kiểm tra đầu vào
@@ -39,7 +40,6 @@ int getInt() {
 
     return value;
 }
-
 
 char getChar() {
     char input;

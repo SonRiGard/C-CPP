@@ -17,14 +17,15 @@ int main(){
         printf(" - Nhập 'x' để sắp xếp giảm dần\n");
         printf(" - Nhập 't' để tìm kiếm số trong dãy\n");
         printf(" - Nhập 'e' để thoát chương trình\n");
+        printf(" - Nhập lựa chọn của bạn: ");
         char choice = getChar();
-        int num ;
+        int num;
             switch (choice) {
                 case 'c':
-                        printf("\n nhập số lượng phần tử trong mảng : ");
-                        num = getInt();
-                        initArr(ObjIntManagment,num);
-                        break;
+                    printf("\n nhập số lượng phần tử trong mảng : ");
+                    num = getInt();
+                    initArr(ObjIntManagment,num);
+                    break;
                 case 'p':
                     printListArr(ObjIntManagment);
                     break;
@@ -75,7 +76,7 @@ int main(){
                     return 0;
                 default:
                     printf("Lựa chọn không hợp lệ! Vui lòng thử lại.\n");
-            }
+                }
         }
         return 0;
                 
