@@ -78,6 +78,6 @@ int main(){
                     printf("Lựa chọn không hợp lệ! Vui lòng thử lại.\n");
                 }
         }
+        destroyIntManagment(ObjIntManagment);
         return 0;
-                
 }

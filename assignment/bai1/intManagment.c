@@ -4,7 +4,7 @@
 #include "input.h"
 
 struct intManagment{
-    int *data;
+    int *data; 
     int size;
 };
 
@@ -13,6 +13,10 @@ intManagment* creat_ptr_managment (){
     tmpPtr-> data =NULL;
     tmpPtr-> size =0;
     return tmpPtr;
+}
+
+void destroyIntManagment (intManagment* arr){
+    free(arr->data);
 }
 
 void initArr (intManagment* arr, int size){

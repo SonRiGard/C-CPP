@@ -53,6 +53,19 @@
                 "cwd": "${workspaceFolder}/assignment/bai1"
             }
         } ,
+        {
+            "label": "Build ass2_1",
+            "type": "shell",
+            "command": "make build",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/assignment/bai2/ex1"
+            }
+        } ,
 
     ]
 }

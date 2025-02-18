@@ -9,5 +9,5 @@ int deleteAtIndex (intManagment* arr, int index);
 void sortAscending (intManagment* arr);
 void sortDescending (intManagment* arr);
 int checkValue (intManagment* arr , int value);
-
+void destroyIntManagment (intManagment* arr);
 #endif
