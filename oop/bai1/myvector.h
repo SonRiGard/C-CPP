@@ -20,7 +20,6 @@ class vector {
             capacity = newcapacity;
             data = dataTemp;
         }
-
     
     public:
         vector(): size(0), capacity(1){

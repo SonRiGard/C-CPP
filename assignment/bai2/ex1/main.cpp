@@ -45,7 +45,6 @@ int main (){
 
     uint16_t* bptr = findMax(aptr);
     cout << "bptr = "<< bptr <<endl;
-
     //Auto call destructor of class vector
 }
  

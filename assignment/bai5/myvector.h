@@ -11,17 +11,17 @@ class vector {
         unsigned int size;
         unsigned int capacity;
 
-        void resize (unsigned int newcapacity){
-            cout << "resize called"<<endl;
-            T* dataTemp = new T[size];
-            for (int i=0; i<size; i++){
-                dataTemp[i] = data[i];
+            void resize(unsigned int newcapacity) {
+                T* dataTemp = new T[newcapacity]; 
+                for (unsigned int i = 0; i < size && i < newcapacity; i++) {
+                    dataTemp[i] = data[i];
+                }
+                delete[] data;  // Giải phóng bộ nhớ cũ
+                data = dataTemp;  // Cập nhật con trỏ
+                capacity = newcapacity;
             }
-            delete[] data;
-            capacity = newcapacity;
-            data = dataTemp;
-        }
-
+            
+    
     public:
         vector(): size(0), capacity(1){
             data = new T[capacity];
@@ -34,6 +34,11 @@ class vector {
             }
         }
 
+        ~vector(){
+            delete[] data;
+            data = nullptr;
+        }
+
         unsigned int getSize (){
             return size;
         }
@@ -43,12 +48,12 @@ class vector {
         }
 
         void push_back(T value){
-            if (size == capacity) {
-                capacity = capacity*2; 
-                resize(capacity);
+            if (size >= capacity) {
+                resize(capacity * 2);
             }
-            if (data != NULL) {  // Kiểm tra con trỏ hợp lệ trước khi truy cập
-                data[size++] = value;
+            if (data) {  // Kiểm tra con trỏ hợp lệ trước khi truy cập
+                data[size] = value;
+                size++;
             } else {
                 std::cerr << "Lỗi: Bộ nhớ data bị NULL!" << std::endl;
             }
@@ -106,8 +111,14 @@ class vector {
             }
             std::cout << std::endl;
         }
-    
 
+        T getValueAtIndex(int i){
+            return data[i];
+        }
+
+        T* getAddAtIndex(int i){
+            return data+i;
+        }
         bool isEmpty (){
             return size == 0;
         }
@@ -119,6 +130,7 @@ class vector {
         T* end (){
             return &data[size];
         } 
+
         void shrink_to_fit() {
             if (size < capacity) {
                 T* newData = new T[size];
@@ -130,7 +142,6 @@ class vector {
                 capacity = size;
             }
         }
-
 };
 
 #endif

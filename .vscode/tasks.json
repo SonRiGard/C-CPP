@@ -66,6 +66,31 @@
                 "cwd": "${workspaceFolder}/assignment/bai2/ex1"
             }
         } ,
-
+        {
+            "label": "Build ass4_1",
+            "type": "shell",
+            "command": "make build",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/assignment/bai4/ex1"
+            }
+        } ,
+        {
+            "label": "Build ass5",
+            "type": "shell",
+            "command": "make",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/assignment/bai5/"
+            }
+        } ,
     ]
 }

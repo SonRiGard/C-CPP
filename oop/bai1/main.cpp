@@ -1,5 +1,10 @@
 #include <iostream>
-#include "officer.h"
+#include "managementOfficer.h"
+#include "worker.h"
+#include "staff.h"
+#include "engineer.h"
+#include "input.h"
+
 #include <string>
 using namespace std;
 
@@ -51,11 +56,11 @@ int main(){
 
                 if (type == 1){
                     int level;
-                    cout << "level : ";
-                    cin >> level;
-                    cin.ignore();
+                    do {
+                    cout << "level (1->10) : ";
+                    level = getInt16();
+                    }while (!(level>0 && level<11));
                     cout << endl;
-                    cout<< name<< age<<sex<<address<<level;
                     officer* tmp = new worker(name,age,sex,address,level);
                     cp.addNew(tmp);
                 }else{
@@ -74,7 +79,7 @@ int main(){
                         cp.addNew(new staff(name,age,sex,address,task));
                     }
                 }
-                cout << "show list";
+                cout << "LIST OFFICER:\n";
                 cp.shownList();
                 break;
             case 2:
@@ -89,6 +94,5 @@ int main(){
                 exit = 1;
                 break;
             } 
-
     }
 }

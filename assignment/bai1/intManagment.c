@@ -53,7 +53,7 @@ void printListArr (intManagment* arr){
         printf("ERROR: print null poiter\n");
         return;
     } ;
-    printf("print array \n arr = ");
+    printf("arr = [index:value] ");
     for(int i=0; i<arr->size; i++){
         printf(" [%d]:[%d] ",i,arr->data[i]);
     }

@@ -15,7 +15,9 @@ uint8_t getUint8() {
         int temp;  // Biến tạm thời để lưu giá trị nhập vào
     
         while (true) {
+            #ifdef DEBUG
             cout << "Enter a number ("<<MIN_UINT8<<"-"<<MAX_UINT8<<"): ";
+            #endif
             // Kiểm tra đầu vào là số nguyên
             if (cin >> temp) {
                 // Kiểm tra nếu giá trị nằm trong phạm vi của uint8_t
@@ -25,7 +27,8 @@ uint8_t getUint8() {
                     #endif
                     return static_cast<uint8_t>(temp);  // Chuyển đổi và trả về giá trị hợp lệ
                 } else {
-                    cout << "Error: Number must be between "<<MIN_UINT8<<"add"<<MAX_UINT8<< "\n";
+                    cout << "Error: Number must be between "<<MIN_UINT8<<" - "<<MAX_UINT8<< "\n";
+                    cout << "enter again: ";
                 }
             } else {
                 // Nếu không phải số (như chữ cái), xử lý lỗi
@@ -70,13 +73,13 @@ uint16_t getUint16() {
     int temp;  // Biến tạm thời để lưu giá trị nhập vào
 
     while (true) {
-        cout << "Enter a number ("<<MIN_INT16<<"-"<<MAX_INT16<< "): ";
+        cout << "Enter a number : ";
 
         // Kiểm tra đầu vào là số nguyên
         if (cin >> temp) {
             // Kiểm tra nếu giá trị nằm trong phạm vi của uint16_t
             if (temp >= MIN_UINT16 && temp <= MAX_UINT16) {
-                cout << "Valid value" << endl;
+                // cout << "Valid value" << endl;
                 return static_cast<uint16_t>(temp);  // Chuyển đổi và trả về giá trị hợp lệ
             } else {
                 cout << "Error: Number must be between "<<MIN_UINT16<<"add"<<MAX_UINT16<< ".\n";

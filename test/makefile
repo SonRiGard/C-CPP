@@ -6,3 +6,7 @@ runc:
 	./test.exe
 buildpre:
 	gcc -E test.cpp -o test.i
+
+run:
+	g++ main.cpp -o main
+	./main.exe

@@ -118,7 +118,72 @@
             ],
             "externalConsole": false
         },
-
+        {
+            "name": "Debug ass2_3",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/assignment/bai2/ex3/main.exe",
+            "cwd": "${workspaceFolder}/assignment/bai2",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug ass4_1",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build ass4_1",
+            "program": "${workspaceFolder}/assignment/bai4/ex1/main.exe",
+            "cwd": "${workspaceFolder}/assignment/bai4/ex1/",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug ass5",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build ass5",
+            "program": "${workspaceFolder}/assignment/bai5/main.exe",
+            "cwd": "${workspaceFolder}/assignment/bai5",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+        {
+            "name": "Debug ALL",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/oop/bai3/main.exe",
+            "cwd": "${workspaceFolder}/oop/",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
 
     ]
 }
