@@ -184,6 +184,23 @@
             ],
             "externalConsole": false
         },
+        {
+            "name": "Debug oopp",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/oop/bai4/bin/main.exe",
+            "cwd": "${workspaceFolder}/oop/",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "externalConsole": false
+        },
+
 
     ]
 }

@@ -41,5 +41,4 @@ class Employee {
         void editInfor();
 };  
 
-
 #endif

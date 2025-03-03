@@ -22,6 +22,9 @@ void getFresher(){
 void getIntern(){
     manageEmp.findIntern();
 }
+void showListEMp(){
+    manageEmp.showListEmployee();
+}
 
 int main (){
     controller controlEmp;
@@ -30,6 +33,7 @@ int main (){
     controlEmp.addController("EXP","Find Experience type in list",getExperience);
     controlEmp.addController("FRE","Find Fresher type in list",getFresher);
     controlEmp.addController("INT","Find Intern type in list",getIntern);
+    controlEmp.addController("PRI","Print list Employee",showListEMp);
 
     controlEmp.run();
 }   
