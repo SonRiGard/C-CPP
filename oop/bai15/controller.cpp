@@ -11,7 +11,7 @@ void controller::displayMenu() {
     for (const auto& task : descriptions) {
         std::cout << " - " << task.first << " - " << task.second << "\n";
     }
-    std::cout << " EXI - Exit program\n";
+    std::cout << " EXIT - Exit program\n";
 }
 
 void controller::run() {

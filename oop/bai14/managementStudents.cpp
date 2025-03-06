@@ -1,6 +1,8 @@
 #include "managementStudents.h"
 #include "exception.h"
 #include "input.h"
+#include <ctime>   
+#include <cstdlib>
 
 managementStudents::managementStudents(){
 
@@ -159,7 +161,7 @@ void managementStudents::selectCandidates(int n){
     std::vector<GoodStudent*> ptr_goodStudents;
     std::vector<NormalStudent*> ptr_normalStudents;
     std::vector<Student*> selectedStudents;
-    int num = ptr_goodStudents.size();//get all students
+    int num = ptrStudents.size();//get all students
 
     if(n>num){
         std::cout << "Number of all student smaller than needed \n" << std::endl;
@@ -184,6 +186,7 @@ void managementStudents::selectCandidates(int n){
             break;
         }
     }
+
     int numGood = ptr_goodStudents.size();
     int numNormal = ptr_normalStudents.size();
     //lambda function wap 2 Pointer in list student Using in sort function
@@ -236,3 +239,68 @@ void managementStudents::selectCandidates(int n){
     }
     std::cout<< "====== END LIST SELECTED STUDENTS ======";
 };
+
+void managementStudents::autoAddStudent() {
+    static int count = 1; // Bien dem de tao du lieu duy nhat
+    static bool isSeeded = false; 
+    
+    if (!isSeeded) {
+        std::srand(std::time(0));
+        isSeeded = true;
+    }
+    
+    std::string tmpfullName = "SinhVien" + std::to_string(count);
+    
+    // Sinh ngay sinh ngau nhien
+    int day = 1 + (std::rand() % 28);   
+    int month = 1 + (std::rand() % 12); 
+    int year = 1995 + (std::rand() % 11); 
+    std::string tmpDOB = (day < 10 ? "0" : "") + std::to_string(day) + "-" +
+                         (month < 10 ? "0" : "") + std::to_string(month) + "-" +
+                         std::to_string(year);
+    
+    // Sinh so dien thoai ngau nhien
+    std::string tmpPhone = "0" + std::to_string(100000000 + (std::rand() % 900000000));
+    
+    std::string tmpUniversity = "DaiHoc_" + std::to_string(count);
+    std::string tmpgradeLevel = "CapBac_" + std::to_string(count);
+    
+    // Gioi tinh ngau nhien
+    std::string tmpsex = (std::rand() % 2 == 0) ? "Nu" : "Nam";
+    
+    // Loai sinh vien ngau nhien (0: Gioi, 1: Thuong)
+    int tmpType = std::rand() % 2;
+    
+    switch ((studentTypeEnum)tmpType) {
+    case good: {
+        float tmpgpa = 5.0 + (std::rand() % 51) / 10.0; 
+        std::string tmpreward = "PhanThuongXuatSac";
+    
+        ptrStudents.push_back(new GoodStudent(std::move(tmpfullName), std::move(tmpDOB),
+            std::move(tmpsex), std::move(tmpPhone), std::move(tmpUniversity),
+            std::move(tmpgradeLevel), tmpgpa, std::move(tmpreward)));
+    
+        std::cout << "Da them sinh vien Gioi: " << tmpfullName << " - Ngay sinh: " << tmpDOB
+                  << " - GPA: " << tmpgpa << std::endl;
+        break;
+    }
+    case normal: {
+        int tmpenglishScore = 50 + (std::rand() % 51); 
+        float entryTestScore = 5.0 + (std::rand() % 51) / 10.0; 
+    
+        ptrStudents.push_back(new NormalStudent(std::move(tmpfullName), std::move(tmpDOB),
+            std::move(tmpsex), std::move(tmpPhone), std::move(tmpUniversity),
+            std::move(tmpgradeLevel), tmpenglishScore, entryTestScore));
+    
+        std::cout << "Da them sinh vien Thuong: " << tmpfullName << " - Ngay sinh: " << tmpDOB
+                  << " - Diem Anh: " << tmpenglishScore << " - Diem dau vao: " << entryTestScore << std::endl;
+        break;
+    }
+    default:
+        std::cout << "Loi: Loai sinh vien khong hop le!" << std::endl;
+        break;
+    }
+    
+    count++; // Tang bien dem de tao sinh vien moi
+    
+}

@@ -14,7 +14,7 @@ class managementStudents{
         void addStudent();
         void sortStudents();
         void selectCandidates(int n);
-    
+        void autoAddStudent();
     
 };
 #endif

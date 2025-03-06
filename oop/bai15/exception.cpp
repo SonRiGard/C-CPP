@@ -30,7 +30,7 @@ void InvalidEntryScoreException(float entryTestScore, float min, float max){
 
 void InvalidEntryYearException(int entryYear , int min , int max){
     if(entryYear < min || entryYear > max){
-        throw std::out_of_range("Entry year must be in range");
+        throw std::runtime_error ("Entry year must be in range");
     }
 };
 

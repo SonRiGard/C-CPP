@@ -46,7 +46,6 @@ char getChar() {
 
     do {
         input = getchar();  // Đọc một ký tự
-
         if (input == '\n') {  // Nếu chỉ nhấn Enter mà không nhập ký tự
             printf("No input detected. Please enter a character from 'a' to 'z': ");
         } else if (input >= 'a' && input <= 'z') {  // Nếu ký tự hợp lệ
@@ -62,7 +61,6 @@ char getChar() {
         }
 
     } while (!check);
-
     return input;
 }
 

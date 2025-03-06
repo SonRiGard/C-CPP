@@ -5,6 +5,7 @@
 #include <string>
 #include "sinhVienTaiChuc.hpp"
 #include "sinhVienChinhQuy.hpp"
+#include "config.hpp"
 
 class khoa {
     private:
@@ -29,4 +30,5 @@ class khoa {
         sinhVien* SinhVienCoDiemHocKyCaoNhatCuaKhoa();
         void sapSepSVTangDanTheoLoaiGiamDanTheoNamVao();
         void thongKeSoLuongSinhVienTheoNam();
+        void themSinhVienAuto();
     };

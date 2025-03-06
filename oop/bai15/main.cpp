@@ -1,5 +1,6 @@
 #include "khoa.hpp"
 #include "controller.hpp"
+#include "config.hpp"
 
 khoa khoaCNTT;
 
@@ -7,10 +8,6 @@ khoa khoaCNTT;
 
 int main (){
     controller khoaController;
-
-    khoaController.addController("ADD","Them sinh vien moi!",[](){
-        khoaCNTT.themSinhVien();
-    });
 
     khoaController.addController("SHOW","Hien thi danh sach sinh vien!",[](){
         khoaCNTT.hienThiSinhVien();
@@ -38,7 +35,6 @@ int main (){
     khoaController.addController("TNDD","Sinh vien tai noi dao tao!",[](){
         std::string noiDaoTao;
         std::cout<<"Nhap noi dao tao: ";
-        std::cin.ignore();
         std::getline(std::cin,noiDaoTao);
         khoaCNTT.SvTaiNoiDaoTao(noiDaoTao);
     });
@@ -53,12 +49,7 @@ int main (){
         khoaCNTT.SinhVienCoDiemHocKyCaoNhatCuaKhoa();
     });
     
-    //sinh vien co diem trung binh cao nhat cua khoa
-    khoaController.addController("SVCN","Sinh vien co diem hoc ky cao nhat cua khoa!",[](){
-        khoaCNTT.SinhVienCoDiemHocKyCaoNhatCuaKhoa();
-    });
-
-    //sap sep sinh vien tang dan theo nam va giam dan theo nam vao
+    //sap sep sinh vien tang dan theo loai va giam dan theo nam vao
     khoaController.addController("SORT","Sap xep sinh vien theo nam va nam vao hoc!",[](){
         khoaCNTT.sapSepSVTangDanTheoLoaiGiamDanTheoNamVao();
     });
@@ -67,6 +58,21 @@ int main (){
     khoaController.addController("TKE","Thong ke so luong sinh vien theo nam!",[](){
         khoaCNTT.thongKeSoLuongSinhVienTheoNam();
     });
+
+    #ifdef AUTO_INPUT_MODE
+    //them sinh vien tu dong
+    khoaController.addController("ADD","Them sinh vien moi!",[](){
+        std::srand(std::time(0)); 
+        for(int i = 0; i<NUMBER_OF_STUDENTS; i++)
+        khoaCNTT.themSinhVienAuto();
+    });
+    #endif
+
+    #ifdef MANUAL_INPUT_MODE
+    khoaController.addController("ADD","Them sinh vien moi!",[](){
+        khoaCNTT.themSinhVien();
+    });
+    #endif
 
     khoaController.run();
 }

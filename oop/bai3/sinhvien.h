@@ -11,6 +11,7 @@ class sinhVien{
         int mucUuTien;
     public:
         sinhVien(int SBD,std::string ten,std::string diaChi, int mucUuTien):SBD(SBD),ten(ten),diaChi(diaChi),mucUuTien(mucUuTien){};
+        ~sinhVien(){};
         virtual void printSinhVien() = 0;
         unsigned int getSBD(){
             return this->SBD;

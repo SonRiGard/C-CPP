@@ -3,20 +3,26 @@
 #include "sinhVienChinhQuy.hpp"
 
 sinhVien::sinhVien(){
-
 };
 
 sinhVien::sinhVien(std::string& maSV, std::string& hoTen, std::string& doB, uint16_t namVaoHoc, float diemDauVao)
     :maSinhVien(maSV),hoTen(hoTen),doB(doB),namVaoHoc(namVaoHoc),diemDauVao(diemDauVao)
 {
+    #ifdef AUTO_INPUT_MODE
+    autoNhapDiem();
+    #endif
+
+    #ifdef MANUAL_INPUT_MODE
     nhapDiem();
+    #endif
 };
 
 //move constructor
 sinhVien::sinhVien(std::string&& maSV, std::string&& hoTen, std::string&& doB, uint16_t& namVaoHoc, float& diemDauVao)
     :maSinhVien(maSV),hoTen(hoTen),doB(doB),namVaoHoc(namVaoHoc),diemDauVao(diemDauVao)
 {
-    nhapDiem();
+    // nhapDiem();
+    autoNhapDiem();
 };
 
 //deep copy constructor
@@ -67,6 +73,21 @@ void sinhVien::nhapDiem(){
         bangDiem.push_back(new ketQuaHocTap(kyhoc,diemTrungBinh));
     }
 };
+
+void sinhVien::autoNhapDiem() {
+    int soKyHoc = 1 + std::rand() % 8; 
+    bangDiem.clear(); 
+
+    for (int i = 1; i <= soKyHoc; i++) {
+        int kyHoc = i; 
+        float diemTrungBinh = 5.0 + static_cast<float>(std::rand() % 51) / 10;
+
+        bangDiem.push_back(new ketQuaHocTap(kyHoc, diemTrungBinh));
+
+        std::cout << "Da them diem tu dong: Ky hoc " << kyHoc 
+                  << " - Diem trung binh: " << diemTrungBinh << std::endl;
+    }
+}
 
 void sinhVien::xuatDiem(){
     if(bangDiem.size() == 0){

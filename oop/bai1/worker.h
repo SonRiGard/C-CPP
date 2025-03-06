@@ -13,6 +13,8 @@ class worker : public officer{
             this->add = add;
             this->level = level;
         }
+        ~ worker(){
+        };
         void printOff () override;
 };
 

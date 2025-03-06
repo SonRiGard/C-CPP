@@ -1,5 +1,7 @@
 #include "khoa.hpp"
 #include "exception.hpp"
+#include <cstdlib> 
+#include <ctime> 
 
 
 khoa::khoa(){
@@ -12,7 +14,6 @@ khoa::~khoa(){
     }
 };
 
-// Quản lý sinh viên
 void khoa::themSinhVien(){
     bool invaledInfor = false;
     while(!invaledInfor){
@@ -42,7 +43,7 @@ void khoa::themSinhVien(){
             std::cout<<"Luu chon loai sinh Vien 0-Tai Chuc; 1-Chinh Quy:";
             int loaiSV;
             std::cin>>loaiSV;
-
+            
             std::string noiDaoTao;
             switch ((enumTypeSV)loaiSV)
             {
@@ -63,11 +64,44 @@ void khoa::themSinhVien(){
             }
             invaledInfor = true;
         }
-        catch(const std::exception& e){
+        catch(const std::runtime_error& e){
             std::cout << "Error: " << e.what() << std::endl;
         }
+        catch(const std::out_of_range& e){
+            std::cout << "Error: " << e.what() << std::endl;
+        }
+
+
     }
 };
+
+void khoa::themSinhVienAuto() {
+    static int count = 1; 
+
+    std::string hoTen = "SinhVien" + std::to_string(count);
+    std::string maSV = "SV" + std::to_string(count);
+    std::string doB = "01/01/2000"; // Ngay sinh mac dinh
+    uint16_t namVaoHoc = 2018 + (std::rand() % 5); // Ngau nhien tu 2018 den 2022
+    float diemDauVao = 5.0 + static_cast<float>(std::rand() % 51) / 10; // Ngau nhien tu 5.0 den 10.0
+    
+    int loaiSV = count % 2; // Xen ke giua sinh vien chinh quy va tai chuc
+    std::string noiDaoTao = "Ha Noi";
+
+    sinhVien* sv;
+    switch ((enumTypeSV)loaiSV) {
+        case type_taiChuc:
+            sv = new sinhVienTaiChuc(std::move(maSV), std::move(hoTen), std::move(doB), namVaoHoc, diemDauVao, std::move(noiDaoTao));
+            break;
+        case type_chinhQuy:
+            sv = new sinhVienChinhQuy(std::move(maSV), std::move(hoTen), std::move(doB), namVaoHoc, diemDauVao);
+            break;
+        default:
+            std::cout << "Loi loai sinh vien khong hop le!\n";
+            return;
+    }
+    danhSachSinhVien.push_back(sv);
+    count++; 
+}
 
 void khoa::hienThiSinhVien(){
     for(auto ptr:danhSachSinhVien){
@@ -81,7 +115,7 @@ void khoa::hienThiDiemTrungBinhTheoKy(){
     std::cin>>kyHoc;
     for(auto ptr:danhSachSinhVien){
         std::cout<<"Ma sinh vien: "<<ptr->layMaSinhVien()<<" - Diem trung binh ky "<<kyHoc<<": ";
-        ptr->layDiemTheoKy(kyHoc);
+        std::cout<<ptr->layDiemTheoKy(kyHoc)<<"\n";
     }
 };
 
@@ -127,7 +161,7 @@ void khoa::SVCodiemDauVaoCaoNhat(){
 void khoa::SvTaiNoiDaoTao(std::string noiDaoTao){
     for(auto ptr:danhSachSinhVien){
         if(ptr->loaiSinhVien() == type_taiChuc){
-            if(((sinhVienTaiChuc*)ptr)->layNoiDaoTao() == noiDaoTao){
+            if((dynamic_cast<sinhVienTaiChuc*>(ptr))->layNoiDaoTao() == noiDaoTao){
                 ptr->hienThiSinVien();
             }
         }
@@ -205,7 +239,6 @@ uint32_t khoa::layNamVaoCaoNhat(){
     return max;
 };
 
-
 void khoa::thongKeSoLuongSinhVienTheoNam(){
     for(uint32_t i = layNamVaoThapNhat(); i<= layNamVaoCaoNhat(); i++){
         if(SoLuongSinhVienTheoNam(i) > 0){
@@ -213,6 +246,3 @@ void khoa::thongKeSoLuongSinhVienTheoNam(){
         }
     }
 };
-
-
-

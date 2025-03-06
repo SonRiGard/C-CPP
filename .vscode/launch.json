@@ -188,7 +188,7 @@
             "name": "Debug oopp",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/oop/bai4/bin/main.exe",
+            "program": "${workspaceFolder}/oop/bai15/bin/main.exe",
             "cwd": "${workspaceFolder}/oop/",
             "MIMode": "gdb",
             "setupCommands": [

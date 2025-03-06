@@ -22,7 +22,7 @@ class Student
         std::string gradeLevel;
     public:
     Student();
-    Student(std::string& fullname,std::string& doB,std::string& sex,std::string& phoneNumber,std::string& universityName,std::string& gradeLevel);
+    Student(const std::string& fullname,const std::string& doB,const std::string& sex,const std::string& phoneNumber,const std::string& universityName,const std::string& gradeLevel);
     Student(std::string&& fullname,std::string&& doB,std::string&& sex,std::string&& phoneNumber,std::string&& universityName,std::string&& gradeLevel);
     virtual ~Student();
     virtual void ShowMyInfor()=0;

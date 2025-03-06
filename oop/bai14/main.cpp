@@ -28,6 +28,12 @@ int main(){
     stdController.addController("SHO","Show list students!",ShowStudents);
     stdController.addController("REC","Select student to recruit!",RecruitmentStudent);
     stdController.addController("SOR","Show sorted list Name and Phone of students!",shownSortListNameAndPhone);
+    stdController.addController("AUTO","Auto add student!",[](){
+        srand(time(0));
+        for(int i=0;i<15;i++){
+            mnStudents.autoAddStudent();
+        }
+        });
 
     stdController.run();
 }

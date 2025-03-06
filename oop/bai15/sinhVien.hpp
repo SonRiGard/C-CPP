@@ -5,7 +5,9 @@
 #include <vector>
 #include "ketQuaHocTap.hpp"
 #include <cstdint>
-
+#include <cstdlib> 
+#include <ctime> 
+#include "config.hpp"
 typedef enum enumTypeSV{
     type_taiChuc,
     type_chinhQuy
@@ -39,6 +41,6 @@ class sinhVien {
         float layDiemHocKyCaoNhat();
         uint16_t layNamVaoHoc();
         virtual std::string layNoiDaoTao()=0;
-        
+        void autoNhapDiem();
     };
     
